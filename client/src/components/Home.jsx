@@ -9,14 +9,15 @@ import Testimonials from './Testimonials'
 import Track from './Track'
 import Gallery from './Gallery'
 
+
 const Home = () => {
   return (
     <div>
       <Banner />
       <Track/>
+      <Serviceitems/>
       <About/>
       <Services/>
-      
       <Testimonials/>
       <Gallery/>
       <ContactUs/>

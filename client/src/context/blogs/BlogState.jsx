@@ -13,7 +13,6 @@ const BlogState = (props) => {
         }
     )
   
-  
 
      console.log("this is our product from backend",product);
 

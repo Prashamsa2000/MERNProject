@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import blogContext from '../context/blogs/BlogContext';
-import coffee from '../assets/coffee.jpg'
+//import coffee from '../assets/coffee.jpg'
 import { MdDelete } from "react-icons/md";
 
 const CartItems = () => {
