@@ -26,7 +26,7 @@ const Navbar = (props) => {
                             <Link className="nav-link" to="/blogs">Blogs</Link>
                         </li> */}
                         <li className="nav-item">
-                            <Link className="nav-link text-light" to="/blogs">Menu</Link>
+                            <Link className="nav-link text-light" to="/menu">Menu</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link text-light" to="/about">About Us</Link>

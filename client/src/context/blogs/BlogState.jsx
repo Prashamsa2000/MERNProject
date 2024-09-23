@@ -11,6 +11,10 @@ const BlogState = (props) => {
             products: product,
             cart:[]
         }
+
+
+
+        
     )
   
 

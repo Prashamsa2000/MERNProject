@@ -4,7 +4,7 @@ import { PiDotsThree } from "react-icons/pi";
 import EditProductModel from './EditProductModel';
 //import { useNavigate } from 'react-router-dom';
 
-const Menu = () => {
+const Menu = (props) => {
   const context=useContext(blogContext)
   const { state: { cart, products }, dispatch, allProduct ,product } = context;
 

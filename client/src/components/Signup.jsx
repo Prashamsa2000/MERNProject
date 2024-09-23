@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {Link, useNavigate } from 'react-router-dom'
-//import Register from './images/signup.jpg'
+import bg from '../assets/bg.jpg'
+import signup from '../assets/signup.jpg'
 
 const Signup = (props) => {
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
@@ -22,11 +23,11 @@ const Signup = (props) => {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authToken); 
             navigate("/login");
-            props.showAlert('Account created ', 'success')
+            props.showAlert('Account created successfully !', 'success')
 
         }
         else {
-            props.showAlert('invalid credential', 'danger')
+            props.showAlert('Invalid Credentials !', 'danger')
         }
     }
 
@@ -35,13 +36,17 @@ const Signup = (props) => {
     }
 
     return (
+       
         <div className='container my-5'>
-            <div className='row'>
-            <div className='col-md-6'>
-                    {/* <img src={Register} alt='Sign-up'/>
-                */} </div>
+            <div className='row justify-content-end'>
+          
                 <div className='col-md-6'>
-                <h2 className='login-title'>Register to continue Lead Generator</h2>
+                    
+                    <div className='card-body d-flex flex-row' style={{backgroundColor:'white'}} >
+
+
+                        <div style={{backgroundColor:'red'}}></div>
+                <h2 className='card-title' style={{fontFamily:'monospace'}}>Join Us Now !</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3 signup-form">
                             <i className="fa fa-user"></i>
@@ -62,14 +67,21 @@ const Signup = (props) => {
                             <input type="password" className="form-control login-form" value={credentials.cpassword} onChange={onChange} name="cpassword" id="cpassword" minLength={5} required placeholder='Confirm Password' />
                         </div>
 
-                        <button type="submit" className="login-button">Submit</button>
-                        <p>Already have an account ? <Link to="/login">Login.</Link>  </p>
+                        <button type="submit" className="login-button btn btn-success">Submit</button>
+                        <p>Already have an account ?<Link to="/login">Login.</Link>  </p>
                     </form>
+                    </div>
+                </div>
                 </div>
                 
-            </div>
+          
         </div>
+
     )
 }
 
 export default Signup
+
+
+
+

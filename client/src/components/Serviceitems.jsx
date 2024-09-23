@@ -6,26 +6,26 @@ import { PiDotsThree } from "react-icons/pi";
 import EditProductModel from './EditProductModel';
 import { useNavigate } from 'react-router-dom';
 
-const Serviceitems = () => {
+const Serviceitems = (props) => {
   const context = useContext(blogContext);
   const { state: { cart, products }, dispatch, allProduct ,product } = context;
 
 const[menuVisible,setmenuVisible]=useState(false)
 const[modelVisible,setmodelVisible]=useState(false)
+
+
 const navigate=useNavigate()
 
-
-useEffect(() => {
-  allProduct();
-}, []);
 
   const toggleMenu=()=>{
 setmenuVisible(!menuVisible)
   }
+  
+  
   const openEditModel=()=>{
     setmodelVisible(true)
       }
-      const closeModel=()=>{
+          const closeModel=()=>{
         setmodelVisible(false)
           }
 
@@ -33,6 +33,9 @@ const saveedit=(updateData)=>{
 editProduct(_id,updateData)
 closeModel()
 }
+useEffect(() => {
+  allProduct();
+}, []);
 
 
 
@@ -50,7 +53,8 @@ const displayeditems = product ? product.slice(0, 4) : [];
       <h4 className='service-heading my-3 text-center' style={{fontFamily:"monospace", fontSize:"37px"}}>Todays' Special</h4>
       <br></br><br></br>
       <div className='row'>
-        {displayeditems && displayeditems.map((e) => (
+        {displayeditems && displayeditems.map((e) => {
+          return(
          
             <div className='col-md-3' key={e._id}>
               <div className="card" style={{ height: '90%', width: '100%', overflow: 'hidden' }}>
@@ -96,23 +100,26 @@ const displayeditems = product ? product.slice(0, 4) : [];
                   )}
                 </div>
               </div>
-            </div>
-           ))}
-           </div>
+            
+          
+          {/*  
            {product && product.length > 4 && (
             <button className='btn btn-outline-secondary mt-3' onClick={viewmenuhandler}>
               View Menu
             </button>
-          )}
+          )} */}
           {modelVisible && (
             <EditProductModel
-            product={props.product}
+            product={product}
             onClose={closeModel}
 onsave={saveedit}
             />
           )}
+            </div>
+          );
+        })}
       
-      
+      </div>
     </div>
   );
 };

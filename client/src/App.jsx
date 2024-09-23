@@ -66,7 +66,7 @@ function App() {
         <Alert alert={alert} showAlert={showAlert} />
         <Routes>
           <Route path='/' element={<Home />} />
-          {/* <Route path='/blogs' element={<Serviceitems apiKey={apiKey} />} /> */}
+          <Route path='/blogs' element={<Serviceitems apiKey={apiKey} />} />
           <Route path='/about' element={<About />} />
           <Route path='/services' element={<Services />} />
           <Route path='/contactus' element={<ContactUs />} />
@@ -78,7 +78,7 @@ function App() {
           <Route path='/testimonials' element={<Testimonials/>} />
           <Route path='/gallery' element={<Gallery/>} />
           <Route path='/addproduct' element={<Addproduct alert={alert} showAlert={showAlert}/>} />
-          <Route path="/" element={<Serviceitems />} />
+          
           <Route path="/menu" element={<Menu />} />
         
         
