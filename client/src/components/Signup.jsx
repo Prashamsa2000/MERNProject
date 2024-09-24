@@ -106,20 +106,3 @@ export default Signup
 
 
 
-//addproduct
-//cartitems
-//editproductmodel
-//login
-//menu
-//navbar
-//reduce
-//serviceitem
-//blogcontext
-//blogstate
-//reducers
-//app
-
-
-
-//fetchuser
-//routes both
