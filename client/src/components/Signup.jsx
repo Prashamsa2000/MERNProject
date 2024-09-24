@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Link, useNavigate } from 'react-router-dom'
 import bg from '../assets/bg.jpg'
-import signup from '../assets/signup.jpg'
+//import signup from '../assets/signup.jpg'
 
 const Signup = (props) => {
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
@@ -36,17 +36,38 @@ const Signup = (props) => {
     }
 
     return (
-       
-        <div className='container my-5'>
-            <div className='row justify-content-end'>
+        <div className="background" 
+        style={{
+         
+         width:'100%' ,
+         height:'100vh',
+          backgroundImage: `url(${bg})`, 
+          backgroundSize: "cover", 
+          display:'flex',
+         
+          backgroundPosition: "center", 
+          padding: "20px", 
           
-                <div className='col-md-6'>
-                    
-                    <div className='card-body d-flex flex-row' style={{backgroundColor:'white'}} >
-
-
-                        <div style={{backgroundColor:'red'}}></div>
-                <h2 className='card-title' style={{fontFamily:'monospace'}}>Join Us Now !</h2>
+          
+        }}>
+        <div className="card-body">
+    
+  
+      
+        <div className="card" style={{
+        marginTop: "0", 
+        marginLeft: "50%", 
+        marginBottom:"5%",
+        maxWidth: "400px", 
+        height:'530px',
+        backgroundColor:"white",
+        padding:'20px 60px'
+       
+      }} >
+       
+                
+                        
+                <h2 className='service-heading my-3 text-center' style={{fontFamily:'monospace'}}>Sign Up</h2><br></br>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3 signup-form">
                             <i className="fa fa-user"></i>
@@ -66,17 +87,17 @@ const Signup = (props) => {
                             <i className="fa fa-key"></i>
                             <input type="password" className="form-control login-form" value={credentials.cpassword} onChange={onChange} name="cpassword" id="cpassword" minLength={5} required placeholder='Confirm Password' />
                         </div>
-
-                        <button type="submit" className="login-button btn btn-success">Submit</button>
-                        <p>Already have an account ?<Link to="/login">Login.</Link>  </p>
+                        <div className='text-center'>
+                        <button type="submit" style={{marginTop:'10%', marginBottom:'20%',padding:'10px 10px', width:'60%'}} className="login-button btn btn-dark">Register</button>
+                        
+                        </div>
+                        <div className='text-center'>
+                        <p >Already have an account ?<Link to="/login" style={{marginLeft:'5px'}}>Login</Link>  </p>
+                        </div>
                     </form>
                     </div>
                 </div>
                 </div>
-                
-          
-        </div>
-
     )
 }
 
@@ -85,3 +106,20 @@ export default Signup
 
 
 
+//addproduct
+//cartitems
+//editproductmodel
+//login
+//menu
+//navbar
+//reduce
+//serviceitem
+//blogcontext
+//blogstate
+//reducers
+//app
+
+
+
+//fetchuser
+//routes both

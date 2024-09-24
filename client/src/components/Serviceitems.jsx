@@ -4,33 +4,42 @@ import React, { useContext, useEffect, useState } from 'react';
 import blogContext from '../context/blogs/BlogContext';
 import { PiDotsThree } from "react-icons/pi";
 import EditProductModel from './EditProductModel';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
-const Serviceitems = (props) => {
+const Serviceitems = () => {
   const context = useContext(blogContext);
-  const { state: { cart, products }, dispatch, allProduct ,product } = context;
+  const { state: { cart}, dispatch, allProduct ,product , editProduct} = context;
 
-const[menuVisible,setmenuVisible]=useState(false)
+const[menuVisible,setmenuVisible]=useState({})
 const[modelVisible,setmodelVisible]=useState(false)
+const[selectedProduct,setselectedProduct]=useState(false)
 
 
-const navigate=useNavigate()
+//const navigate=useNavigate()
 
 
-  const toggleMenu=()=>{
-setmenuVisible(!menuVisible)
+  const toggleMenu=(id)=>{
+
+setmenuVisible((prevState)=>({
+  ...prevState,
+  [id]: !prevState[id],
+}))
   }
   
   
-  const openEditModel=()=>{
+  const openEditModel=(product)=>{
+    setselectedProduct(product)
     setmodelVisible(true)
       }
-          const closeModel=()=>{
+      
+  const closeModel=()=>{
+            
         setmodelVisible(false)
+        setselectedProduct(null)
           }
 
 const saveedit=(updateData)=>{
-editProduct(_id,updateData)
+editProduct(selectedProduct._id,updateData)
 closeModel()
 }
 useEffect(() => {
@@ -40,11 +49,11 @@ useEffect(() => {
 
 
 
-const viewmenuhandler = () => {
+/* const viewmenuhandler = () => {
   navigate('/menu');
 };
 
-
+ */
 const displayeditems = product ? product.slice(0, 4) : [];
 
   return (
@@ -63,11 +72,11 @@ const displayeditems = product ? product.slice(0, 4) : [];
                   <div className='threedots'>
                   <h5 className="card-title" style={{fontSize:'23px'}}>{e.title} </h5>
                  
-                  <PiDotsThree onClick={toggleMenu}/>
-                  {menuVisible && (
+                  <PiDotsThree onClick={()=>toggleMenu(e._id)}/>
+                  {menuVisible[e._id] && (
                     <div className='menu-options'>
-                      <button onClick={openEditModel}>Edit</button>
-                      <button onClick={()=>deleteWork(_id)}>Delete</button>
+                      <button onClick={()=>openEditModel(e)}>Edit</button>
+                      <button onClick={()=>deleteWork(e._id)}>Delete</button>
                     </div>
         )}
                     </div>
@@ -108,11 +117,11 @@ const displayeditems = product ? product.slice(0, 4) : [];
               View Menu
             </button>
           )} */}
-          {modelVisible && (
+          {modelVisible && selectedProduct && selectedProduct._id===e._id &&(
             <EditProductModel
-            product={product}
+           product={selectedProduct}
             onClose={closeModel}
-onsave={saveedit}
+       onsave={saveedit}
             />
           )}
             </div>
