@@ -8,7 +8,7 @@ import EditProductModel from './EditProductModel';
 
 const Serviceitems = () => {
   const context = useContext(blogContext);
-  const { state: { cart}, dispatch, allProduct ,product , editProduct} = context;
+  const { state: { cart}, dispatch, allProduct ,product , editProduct,deleteProduct} = context;
 
 const[menuVisible,setmenuVisible]=useState({})
 const[modelVisible,setmodelVisible]=useState(false)
@@ -47,7 +47,10 @@ useEffect(() => {
 }, []);
 
 
+const handleDelete=async(id)=>{
+  await deleteProduct(id)
 
+}
 
 /* const viewmenuhandler = () => {
   navigate('/menu');
@@ -76,7 +79,7 @@ const displayeditems = product ? product.slice(0, 4) : [];
                   {menuVisible[e._id] && (
                     <div className='menu-options'>
                       <button onClick={()=>openEditModel(e)}>Edit</button>
-                      <button onClick={()=>deleteWork(e._id)}>Delete</button>
+                      <button onClick={()=>handleDelete(e._id)}>Delete</button>
                     </div>
         )}
                     </div>

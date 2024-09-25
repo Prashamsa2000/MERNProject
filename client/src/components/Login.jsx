@@ -35,6 +35,22 @@ setCredential({...credential,[e.target.name]:e.target.value})
   
   return (
     <div className="container">
+      
+      <div className="card" style={{
+        marginTop: "2%", 
+        marginLeft: "50%", 
+        marginBottom:"5%",
+        maxWidth: "400px", 
+        height:'530px',
+        backgroundColor:"white",
+        padding:'20px 60px'
+       
+      }} >
+       
+                
+                        
+                <h2 className='service-heading my-3 text-center' style={{fontFamily:'monospace'}}>Login</h2><br></br>
+                   
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
@@ -67,13 +83,14 @@ setCredential({...credential,[e.target.name]:e.target.value})
           </label>
         </div> */}
         <button type="submit" className="btn btn-primary">
-          Submit
+        Login
         </button>
       </form>
-      <h6>Not register ?</h6>
+      <h6>Don't have an account ?</h6>
       <Link className="nav-link" to="/signup">
         Signup
       </Link>
+    </div>
     </div>
   );
 };

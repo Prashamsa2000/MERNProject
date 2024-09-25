@@ -5,6 +5,15 @@ const fetchuser = require("../middleware/FetchUser.js");
 const { body, validationResult } = require("express-validator");
 
 
+/* router.get("/getallproducts", fetchuser, async (req, res) => {
+  try {
+    const products = await Product.find({ user: req.user.id });
+    res.json(products);
+  } catch (error) {
+    res.status(500).send("internal server error");
+  }
+});
+ */
 
 //fetch all product by single user
 router.get("/getallproduct", fetchuser, async (req, res) => {
