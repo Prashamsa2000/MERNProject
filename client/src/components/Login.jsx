@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 //import { GoContainer } from "react-icons/go";
 import { Link, useNavigate } from "react-router-dom";
+import Signup from '../assets/signup.jpg'
 
 const Login = (props) => {
   const [credential, setCredential] = useState({ email: "", password: "" })
@@ -21,11 +22,11 @@ const Login = (props) => {
         // Save the auth token and redirect
         localStorage.setItem('token', json.authToken); 
         navigate("/");
-        props.showAlert('Account created ', 'success')
+        props.showAlert('Logged In Successfully !', 'success')
 
     }
     else {
-        props.showAlert('invalid credential', 'danger')
+        props.showAlert('Invalid Credentials !', 'danger')
     }
 }
 
@@ -34,30 +35,29 @@ setCredential({...credential,[e.target.name]:e.target.value})
   }
   
   return (
-    <div className="container">
-      
-      <div className="card" style={{
-        marginTop: "2%", 
-        marginLeft: "50%", 
-        marginBottom:"5%",
-        maxWidth: "400px", 
-        height:'530px',
-        backgroundColor:"white",
-        padding:'20px 60px'
+    <div className="container mt-5">
+       <div className="row justify-content-center">
+       <div className="col-md-6 col-lg-10">
+    
+      <div className="card">
+         <div className='row no-gutters'>
+          <div className="col-md-6 d-none d-md-block">
        
-      }} >
-       
-                
-                        
-                <h2 className='service-heading my-3 text-center' style={{fontFamily:'monospace'}}>Login</h2><br></br>
+     
+        
+                <img className="card-img" src={Signup}></img></div>
+            
+             <div className="col-md-6">     
+              <div className="card-body">     
+                <h2 className='card-title text-center' style={{fontFamily:'monospace'}}>Login</h2><br></br>
                    
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Email address</label>
+         
           <input
             type="email"
-            className="form-control" value={credential.email} onChange={handleChange} name='email'
-            id="exampleInputEmail1"
+            className="form-control my-3" value={credential.email} onChange={handleChange} name='email'
+            id="exampleInputEmail1" placeholder='Email'
             
           ></input>
           {/* <small id="emailHelp" className="form-text text-muted">
@@ -65,11 +65,11 @@ setCredential({...credential,[e.target.name]:e.target.value})
           </small> */}
         </div>
         <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Password</label>
+          
           <input
             type="password"
-            className="form-control" name="password" value={credential.password} onChange={handleChange} 
-            id="exampleInputPassword1"
+            className="form-control my-3" name="password" value={credential.password} onChange={handleChange} 
+            id="exampleInputPassword1" placeholder='Password'
           ></input>
         </div>
         {/* <div className="form-group form-check">
@@ -82,14 +82,22 @@ setCredential({...credential,[e.target.name]:e.target.value})
             Check me out
           </label>
         </div> */}
-        <button type="submit" className="btn btn-primary">
+        <div className="text-center">
+        <button type="submit" className="btn btn-outline-primary" style={{marginTop:'40px', marginBottom:'40px',width:'100%'}}>
+     
         Login
         </button>
+        </div>
       </form>
-      <h6>Don't have an account ?</h6>
-      <Link className="nav-link" to="/signup">
-        Signup
-      </Link>
+      <p className="text-center">Don't have an account ?<Link to="/signup " style={{marginLeft:'5px'}}>
+        Sign Up
+      </Link></p>
+      </div>
+       </div>
+       </div> 
+       </div>
+    
+       </div>
     </div>
     </div>
   );

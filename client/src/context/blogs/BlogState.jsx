@@ -29,6 +29,20 @@ const BlogState = (props) => {
   }
       
 
+  /* const allProducts = async()=>{
+    const  response= await  fetch("http://localhost:5000/api/product/getallproducts",{
+        method : "GET",
+        headers:{
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem('token')
+        }
+    })
+    let parseData= await response.json()
+    console.log(parseData);
+    setProduct(parseData)
+  }
+       */
+
 
   const editProduct=async(selectedProduct,updateData)=>{
 console.log("editinggggg", selectedProduct);
