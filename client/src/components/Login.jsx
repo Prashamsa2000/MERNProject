@@ -45,11 +45,11 @@ setCredential({...credential,[e.target.name]:e.target.value})
        
      
         
-                <img className="card-img" src={Signup}></img></div>
+                <img className="card-img" style={{height:"500px", objectFit:'cover'}} src={Signup}></img></div>
             
              <div className="col-md-6">     
-              <div className="card-body">     
-                <h2 className='card-title text-center' style={{fontFamily:'monospace'}}>Login</h2><br></br>
+              <div className="card-body">    
+                <h2 className='card-title text-center' style={{fontFamily:'monospace'}}>Login</h2><br></br><br></br>
                    
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -83,13 +83,14 @@ setCredential({...credential,[e.target.name]:e.target.value})
           </label>
         </div> */}
         <div className="text-center">
-        <button type="submit" className="btn btn-outline-primary" style={{marginTop:'40px', marginBottom:'40px',width:'100%'}}>
+        <button type="submit" className="btn btn-outline-primary" style={{marginTop:'70px', marginBottom:'40px',width:'100%'}}>
      
         Login
         </button>
         </div>
       </form>
-      <p className="text-center">Don't have an account ?<Link to="/signup " style={{marginLeft:'5px'}}>
+    
+      <p className="text-center" style={{marginTop:'60px'}}>Don't have an account ?<Link to="/signup " style={{marginLeft:'5px'}}>
         Sign Up
       </Link></p>
       </div>
