@@ -23,6 +23,7 @@ const Login = (props) => {
         localStorage.setItem('token', json.authToken); 
         navigate("/");
         props.showAlert('Logged In Successfully !', 'success')
+        
 
     }
     else {
